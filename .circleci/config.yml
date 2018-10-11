@@ -1,14 +1,12 @@
 version: 2
 
 aliases:
-
   - &set-working-directory
-      working_directory: /home/circleci/project
+    working_directory: /home/circleci/project
 
   - &attach-workspace
-      attach_workspace:
-        at: /home/circleci/project
-
+    attach_workspace:
+      at: /home/circleci/project
 
 jobs:
   build:
@@ -32,8 +30,8 @@ jobs:
           name: Run Tests
           command: npm run test
       - run:
-            name: Build
-            command: npm run build
+          name: Build
+          command: npm run build
       - persist_to_workspace:
           root: /home/circleci/project
           paths:
@@ -46,8 +44,8 @@ jobs:
     steps:
       - *attach-workspace
       - run:
-      name: Install awscli
-      command: sudo pip install awscli
+          name: Install awscli
+          command: sudo pip install awscli
       - run:
           name: Deploy to S3 Bucket
           command: .circleci/scripts/deploy_frontend.sh woke-company-frontend.bridgeschoolapp.io
@@ -63,7 +61,3 @@ workflows:
                 - master
           requires:
             - build
-
-  
-
-
