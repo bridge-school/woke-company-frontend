@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { checkApiServer } from "./api";
 
 class App extends Component {
+  componentDidMount() {
+    // checking that we're connected to the backend
+    checkApiServer();
+  }
   render() {
     return (
       <div className="App">
