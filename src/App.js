@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from './assets/bridge-logo.svg';
 import { checkApiServer } from './api';
+import Header from './components/Header';
 
 class App extends Component {
 	componentDidMount() {
@@ -10,11 +10,8 @@ class App extends Component {
 	}
 	render() {
 		return (
-			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="App-title">Welcome to React</h1>
-				</header>
+			<div className="App pt-24 md:pt-32">
+				<Header logo={logo} />
 				<p className="App-intro">
 					To get started, edit <code>src/App.js</code> and save to reload.
 				</p>
