@@ -1,12 +1,19 @@
-import { createStore, combineReducers } from "redux";
-import { reducer as reduxFormReducer } from "redux-form";
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
 
-const reducer = combineReducers({
-  form: reduxFormReducer
-});
+// import root reducer
+import rootReducer from './reducers/index';
 
-const store = (window.devToolsExtension
-  ? window.devToolsExtension()(createStore)
-  : createStore)(reducer);
+const composeEnhancers =
+	typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+	// Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+}) : compose;
 
-export default store;
+// enchancer for our redux dev tools
+const enhancer = composeEnhancers(
+    applyMiddleware(thunk)
+  // other store enhancers if any
+);
+
+// export our store with our rootReducer and enhancer
+export default createStore(rootReducer, enhancer);

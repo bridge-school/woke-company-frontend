@@ -8,4 +8,5 @@ const TextInput = ({ input, label, type }) => {
   );
 };
 
+// export TextInput component
 export default TextInput;
