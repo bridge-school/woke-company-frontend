@@ -1,12 +1,24 @@
 import React from "react";
 
-const TextInput = ({ input, label, type }) => {
-  return (
-    <React.Fragment>
-      <input {...input} placeholder={label} type={type} />
-    </React.Fragment>
-  );
-};
+const TextInput = ({
+  input,
+  label,
+  type,
+  name,
+  meta: { touched, error, warning }
+}) => (
+  <div className="flex flex-col">
+    <label htmlFor={name}>{label}</label>
+    <input
+      className="border border-black w-64"
+      {...input}
+      placeholder="Company Name"
+      type={type}
+    />
+    {touched &&
+      ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+  </div>
+);
 
 // export TextInput component
 export default TextInput;
