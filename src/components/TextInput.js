@@ -10,7 +10,7 @@ const TextInput = ({
   <div className="flex flex-col">
     <label htmlFor={name}>{label}</label>
     <input
-      className="border border-black w-64"
+      className="border border-black p-1"
       {...input}
       placeholder="Company Name"
       type={type}

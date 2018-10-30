@@ -19,7 +19,7 @@ export default ({
 }) => {
   return (
     <React.Fragment>
-      <div className="flex mb-4">
+      <div className="flex items-center mb-4">
         <div className="my-4">
           <DatePicker
             // displays the date in the input
@@ -33,6 +33,7 @@ export default ({
             todayButton={"Today"}
             // once date selected, close the calendar
             shouldCloseOnSelect={true}
+            className="border border-black p-1"
             popperClassName="some-custom-class"
             popperPlacement="top-end"
             popperModifiers={{
@@ -51,8 +52,7 @@ export default ({
         {/* could probably make the icon a component */}
         <label
           htmlFor="date-picker"
-          className="my-4 mx-4 bridge-dark-blue-color"
-        >
+          className="my-4 mx-4 flex-1 bridge-dark-blue-color text-2xl">
           <FontAwesomeIcon icon="calendar-alt" />
         </label>
       </div>

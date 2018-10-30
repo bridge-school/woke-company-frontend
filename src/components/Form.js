@@ -29,7 +29,7 @@ const Form = props => {
     isoDate
   } = props;
   return (
-    <div className="ml-10">
+    <div className="ml-10 mr-10">
       <form onSubmit={handleSubmit}>
         <Field
           name="CompanyName"
