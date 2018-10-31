@@ -4,6 +4,8 @@ import { reduxForm, Field } from "redux-form";
 // COMPONENTS
 import MainDatePicker from "./MainDatePicker";
 import TextInput from "./TextInput";
+import CheckListItem from "./CheckListItem";
+import listitem from './checklistitems.json';
 
 const required = value =>
   value || typeof value === "number" ? undefined : "Required";
@@ -46,6 +48,19 @@ const Form = props => {
           displayDate={displayDate}
           handleChangeDatePicker={handleChangeDatePicker}
         />
+      
+
+        {listitem.companyRequirements.map((key, i) => (
+          <Field
+            name={`checkItem-${i}`}
+            id={i}
+            type="checkbox"
+            component={CheckListItem}
+            label="Company Check List"
+            text={key.requirement}
+          />
+        ))}
+       
         <button
           className="border border-black p-2 mt-4"
           type="submit"

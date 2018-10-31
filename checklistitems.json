@@ -1,0 +1,69 @@
+{
+	"companyRequirements": [
+		{
+			"id": 1,
+			"requirement": "accessible space was a consideration in choosing office or made minor changes to make it more accessible" 
+
+		},
+		{
+			"id": 2,
+			"requirement": "gender neutral washrooms in office"
+
+		},
+		{
+			"id": 3,
+			"requirement": "have tried to de-bias your job descriptions" 
+
+		},
+		{
+			"id": 4,
+			"requirement": "have at least one non-man involved in your interview process"
+
+		},
+		{
+			"id": 5,
+			"requirement": "have parental leave benefits"
+
+		},
+		{
+			"id": 6,
+			"requirement": "have at least one executive supported ERG for a marginalized group in tech or equivalent"
+
+		},
+		{
+			"id": 7,
+			"requirement": "have conducted anti-bias and/or other diversity training"
+
+		},
+		{
+			"id": 8,
+			"requirement": "provide training for managers who don't have precious people management experience"
+
+		},
+		{
+			"id": 9,
+			"requirement": "look outside the 'traditional' CS talent pool for developers"
+
+		},
+		{
+			"id": 10,
+			"requirement": "banned 'culture fit' as a reason not to hire someone"
+
+		},
+		{
+			"id": 11,
+			"requirement": "have a rubric or similar structure for your interview process"
+
+		},
+		{
+			"id": 12,
+			"requirement": "have an HR professional on staff at least part time or a plan to have one soon"
+
+		},
+		{
+			"id": 13,
+			"requirement": "allow flexible work hours"
+
+		}
+	]
+}
