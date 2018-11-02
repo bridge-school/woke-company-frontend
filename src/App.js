@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { checkApiServer } from "./api";
+import moment from "moment";
 // REDUX CONNECT
 import { connect } from "react-redux";
 // ASSETS
@@ -24,22 +25,29 @@ class App extends Component {
       <div className="App pt-24 md:pt-32">
 	  	{/* passing in the logo prop to the Header component */}
         <Header logo={logo} />
-		{/* passing in props to the Form component, some of which is to be used in the MainDatePicker component */}
-        <Form onSubmit={this.submit} isoDate={this.props.isoDate} formattedDate={this.props.formattedDate} displayDate={this.props.datePicker.startDate} handleChangeDatePicker={this.props.handleChangeDatePicker} />
+    {/* passing in props to the Form component, some of which is to be used in the MainDatePicker component */}
+        {/* isoDate={this.props.isoDate} formattedDate={this.props.formattedDate} */}
+        <Form onSubmit={this.submit} displayDate={this.props.formDateFormatted} handleChangeDatePicker={this.props.handleChangeDatePicker} />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => {  
 	return {
 		// spread operator for our props object
-		...state,
+    ...state,
+    formDateFormatted: 
+    state.form.companyInfo && 
+    state.form.companyInfo.values &&
+    state.form.companyInfo.values.datePicker ?
+    moment(state.form.companyInfo.values.datePicker)
+     : moment(),
     // states from datePicker object
     // format the date to be more legible
-    formattedDate: state.datePicker.startDate.format("dddd, MMMM Do YYYY"),
+    // formattedDate: state.datePicker.startDate.format("dddd, MMMM Do YYYY"),
     // convert the date into ISO format
-		isoDate: state.datePicker.startDate.format(),
+		// isoDate: state.datePicker.startDate.format(),
 	}
 };
   

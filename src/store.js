@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
+import { logger } from "redux-logger";
 
 // import root reducer
 import rootReducer from "./reducers/index";
@@ -13,7 +14,8 @@ const composeEnhancers =
 
 // enchancer for our redux dev tools
 const enhancer = composeEnhancers(
-  applyMiddleware(thunk)
+  applyMiddleware(thunk, logger
+  )
   // other store enhancers if any
 );
 

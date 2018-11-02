@@ -20,12 +20,24 @@ export const minLength = min => value =>
 
 export const minLength2 = minLength(2);
 
+
+const CalenderWrapper = ({
+  input,
+  ...custom
+}) => (
+  <MainDatePicker
+    handleChangeDatePicker={(momentDate) => { 
+      input.onChange(momentDate.toISOString())
+    }}
+    {...custom}
+  />
+)
+
 const Form = props => {
   // setting props as variables
   const {
     handleSubmit,
     submitting,
-    handleChangeDatePicker,
     displayDate,
     formattedDate,
     isoDate
@@ -34,7 +46,7 @@ const Form = props => {
     <div className="ml-10 mr-10">
       <form onSubmit={handleSubmit}>
         <Field
-          name="CompanyName"
+          name="companyName"
           type="text"
           component={TextInput}
           label="Company Name"
@@ -42,14 +54,12 @@ const Form = props => {
           warn={alphaNumeric}
         />
         {/* passing in props to the MainDatePicker component */}
-        <MainDatePicker
-          isoDate={isoDate}
-          formattedDate={formattedDate}
-          displayDate={displayDate}
-          handleChangeDatePicker={handleChangeDatePicker}
-        />
-      
-
+        <Field name="datePicker" type="text" 
+            component={CalenderWrapper} 
+            isoDate={isoDate}
+            formattedDate={formattedDate}
+            displayDate={displayDate}
+          />
         {listitem.companyRequirements.map((key, i) => (
           <Field
             name={`checkItem-${i}`}
@@ -60,7 +70,6 @@ const Form = props => {
             text={key.requirement}
           />
         ))}
-       
         <button
           className="border border-black p-2 mt-4"
           type="submit"
