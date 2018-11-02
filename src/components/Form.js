@@ -5,7 +5,9 @@ import { reduxForm, Field } from "redux-form";
 import MainDatePicker from "./MainDatePicker";
 import TextInput from "./TextInput";
 import CheckListItem from "./CheckListItem";
-import listitem from './checklistitems.json';
+import listitem from "./checklistitems.json";
+import TechStackDropdown from "./TechStackDropdown";
+import IndustryDropdown from "./IndustryDropdown";
 
 const required = value =>
   value || typeof value === "number" ? undefined : "Required";
@@ -20,18 +22,14 @@ export const minLength = min => value =>
 
 export const minLength2 = minLength(2);
 
-
-const CalenderWrapper = ({
-  input,
-  ...custom
-}) => (
+const CalenderWrapper = ({ input, ...custom }) => (
   <MainDatePicker
-    handleChangeDatePicker={(momentDate) => { 
-      input.onChange(momentDate.toISOString())
+    handleChangeDatePicker={momentDate => {
+      input.onChange(momentDate.toISOString());
     }}
     {...custom}
   />
-)
+);
 
 const Form = props => {
   // setting props as variables
@@ -54,12 +52,15 @@ const Form = props => {
           warn={alphaNumeric}
         />
         {/* passing in props to the MainDatePicker component */}
-        <Field name="datePicker" type="text" 
-            component={CalenderWrapper} 
-            isoDate={isoDate}
-            formattedDate={formattedDate}
-            displayDate={displayDate}
-          />
+        <Field
+          name="datePicker"
+          type="text"
+          component={CalenderWrapper}
+          isoDate={isoDate}
+          formattedDate={formattedDate}
+          displayDate={displayDate}
+        />
+
         {listitem.companyRequirements.map((key, i) => (
           <Field
             name={`checkItem-${i}`}
@@ -70,6 +71,10 @@ const Form = props => {
             text={key.requirement}
           />
         ))}
+
+        <Field name="techDropdown" component={TechStackDropdown} />
+        <Field name="industryDropdown" component={IndustryDropdown} />
+
         <button
           className="border border-black p-2 mt-4"
           type="submit"
