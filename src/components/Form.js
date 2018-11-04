@@ -64,6 +64,7 @@ const Form = props => {
         {listitem.companyRequirements.map((key, i) => (
           <Field
             name={`checkItem-${i}`}
+            key={`${i}`}
             id={i}
             type="checkbox"
             component={CheckListItem}

@@ -12,7 +12,7 @@ const CheckListItem = ({
 	return (
 		<li>
 			<input 
-				onClick={() => input.onChange(!input.value)}
+				onChange={() => input.onChange(!input.value)}
 				checked={input.value} 
 				type={type} 
 				value="item"/>

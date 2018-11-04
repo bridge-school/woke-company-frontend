@@ -1,12 +1,16 @@
 import React from "react";
+// COMPONENTS
+import Navigation from "./Navigation";
 
 export default ({ logo }) => (
-  <header className="bg-white pt-2 pb-1 md:pt-5 md:pb-4 shadow fixed w-full pin-t">
+  <header>
     <div className="container mx-auto text-center">
       {/* TODO: MAKE A PROPER HOMEPAGE LINK */}
       <a href="/" className="inline-block mx-auto">
         <img src={logo} className="block w-16" alt="Bridge School" />
       </a>
+      <Navigation />
+      <h1>Bridge Company Certification</h1>
     </div>
   </header>
 );

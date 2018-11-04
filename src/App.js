@@ -1,64 +1,29 @@
 import React, { Component } from "react";
-import { checkApiServer } from "./api";
-import moment from "moment";
-// REDUX CONNECT
-import { connect } from "react-redux";
 // ASSETS
 import logo from "./assets/bridge-logo.svg";
-// REDUX ACTIONS
-import { handleChangeDatePicker } from "./actions/actionCreators";
+// REACT ROUTER DOM
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // COMPONENTS
-import Form from "./components/Form";
 import Header from "./components/Header";
+import Home from './components/Home';
+import CompanyList from "./components/CompanyList";
+import StudentInfo from "./components/StudentInfo";
 
 class App extends Component {
-  componentDidMount() {
-    // checking that we're connected to the backend
-    checkApiServer();
-  }
-  submit = values => {
-    // print the form values to the console
-    console.log(values);
-  };
   render() {
     return (
-      <div className="App pt-24 md:pt-32">
-	  	{/* passing in the logo prop to the Header component */}
-        <Header logo={logo} />
-    {/* passing in props to the Form component, some of which is to be used in the MainDatePicker component */}
-        {/* isoDate={this.props.isoDate} formattedDate={this.props.formattedDate} */}
-        <Form onSubmit={this.submit} displayDate={this.props.formDateFormatted} handleChangeDatePicker={this.props.handleChangeDatePicker} />
-      </div>
+      <BrowserRouter>
+        <div>
+          <Header logo={logo} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/companies" component={CompanyList} />
+              <Route path="/student-info" component={StudentInfo} />
+            </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
 
-const mapStateToProps = state => {  
-	return {
-		// spread operator for our props object
-    ...state,
-    formDateFormatted: 
-    state.form.companyInfo && 
-    state.form.companyInfo.values &&
-    state.form.companyInfo.values.datePicker ?
-    moment(state.form.companyInfo.values.datePicker)
-     : moment(),
-    // states from datePicker object
-    // format the date to be more legible
-    // formattedDate: state.datePicker.startDate.format("dddd, MMMM Do YYYY"),
-    // convert the date into ISO format
-		// isoDate: state.datePicker.startDate.format(),
-	}
-};
-  
-const mapDispatchToProps = {
-	// handleChangeDatePicker is an action
-	handleChangeDatePicker
-};
-  
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(App);
-
-// export default App;
+export default App;
