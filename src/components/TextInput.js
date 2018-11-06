@@ -12,7 +12,7 @@ const TextInput = ({
     <input
       className="border border-black p-1"
       {...input}
-      placeholder="Company Name"
+      placeholder={label}
       type={type}
     />
     {touched &&

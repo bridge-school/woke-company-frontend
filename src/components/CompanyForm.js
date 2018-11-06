@@ -31,7 +31,7 @@ const CalenderWrapper = ({ input, ...custom }) => (
   />
 );
 
-const Form = props => {
+const CompanyForm = props => {
   // setting props as variables
   const {
     handleSubmit,
@@ -90,4 +90,4 @@ const Form = props => {
 
 export default reduxForm({
   form: "companyInfo" // a unique identifier for this form
-})(Form);
+})(CompanyForm);
