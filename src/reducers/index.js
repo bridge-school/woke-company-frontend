@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 // REDUX FORM
 import { reducer as formReducer } from "redux-form";
+import checklistReducer from "./checklist.js";
 // REDUCERS
 
 // rootReducer is our parent reducer that takes in our child reducers
@@ -11,7 +12,8 @@ import { reducer as formReducer } from "redux-form";
 // });
 
 const rootReducer = combineReducers({
-  form: formReducer
+  form: formReducer,
+	checklist: checklistReducer
 });
 
 // export rootReducer

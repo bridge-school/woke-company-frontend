@@ -7,13 +7,14 @@ import { checkApiServer } from "../api";
 // COMPONENTS
 import CompanyForm from "./CompanyForm";
 // REDUX ACTIONS
-import { handleChangeDatePicker } from "../actions/actionCreators";
+import { handleChangeDatePicker, getChecklist } from "../actions/actionCreators";
 // REDUX CONNECT
 import { connect } from "react-redux";
 class Home extends Component {
   componentDidMount() {
     // checking that we're connected to the backend
     checkApiServer();
+		this.props.getChecklist();
   }
   submit = values => {
     // print the form values to the console
@@ -23,9 +24,11 @@ class Home extends Component {
     return (
       <div>
         <CompanyForm
+
           onSubmit={this.submit}
           displayDate={this.props.formDateFormatted}
           handleChangeDatePicker={this.props.handleChangeDatePicker}
+					getChecklist={this.props.getChecklist}
         />
       </div>
     );
@@ -47,7 +50,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   // handleChangeDatePicker is an action
-  handleChangeDatePicker
+  handleChangeDatePicker,
+	getChecklist
 };
 
 export default connect(
