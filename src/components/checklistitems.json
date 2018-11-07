@@ -2,67 +2,80 @@
 	"companyRequirements": [
 		{
 			"id": 1,
-			"requirement": "Accessible space was a consideration in choosing office or made minor changes to make it more accessible" 
+			"requirement": "Accessible space was a consideration in choosing office or made minor changes to make it more accessible",
+			"dataLabel": "accessible space"
 
 		},
 		{
 			"id": 2,
-			"requirement": "Gender neutral washrooms in office"
+			"requirement": "Gender neutral washrooms in office",
+			"dataLabel": "gender neutral washrooms"
 
 		},
 		{
 			"id": 3,
-			"requirement": "Have tried to de-bias your job descriptions" 
+			"requirement": "Have tried to de-bias your job descriptions",
+			"dataLabel": "de-biased job descriptions"
 
 		},
 		{
 			"id": 4,
-			"requirement": "Have at least one non-man involved in your interview process"
+			"requirement": "Have at least one non-man involved in your interview process",
+			"dataLabel": "one non-man in interview"
 
 		},
 		{
 			"id": 5,
-			"requirement": "Have parental leave benefits"
+			"requirement": "Have parental leave benefits",
+			"dataLabel":"parental leave benefits"
 
 		},
 		{
 			"id": 6,
-			"requirement": "Have at least one executive supported ERG for a marginalized group in tech or equivalent"
+			"requirement": "Have at least one executive supported ERG for a marginalized group in tech or equivalent",
+			"dataLabel": "executive supported ERG"
 
 		},
 		{
 			"id": 7,
-			"requirement": "Have conducted anti-bias and/or other diversity training"
+			"requirement": "Have conducted anti-bias and/or other diversity training",
+			"dataLabel": "diversity training"
 
 		},
 		{
 			"id": 8,
-			"requirement": "Provide training for managers who don't have precious people management experience"
+			"requirement": "Provide training for managers who don't have precious people management experience",
+			"dataLabel": "manager training"
 
 		},
 		{
 			"id": 9,
-			"requirement": "Look outside the 'traditional' CS talent pool for developers"
+			"requirement": "Look outside the 'traditional' CS talent pool for developers",
+			"dataLabel": "outside traditional talent pool"
 
 		},
 		{
 			"id": 10,
-			"requirement": "Banned 'culture fit' as a reason not to hire someone"
+			"requirement": "Banned 'culture fit' as a reason not to hire someone",
+			"dataLabel": "banned culture fit"
 
 		},
 		{
 			"id": 11,
-			"requirement": "Have a rubric or similar structure for your interview process"
+			"requirement": "Have a rubric or similar structure for your interview process",
+			"dataLabel": "rubric"
 
 		},
 		{
 			"id": 12,
-			"requirement": "Have an HR professional on staff at least part time or a plan to have one soon"
+			"requirement": "Have an HR professional on staff at least part time or a plan to have one soon",
+			"dataLabel": "hr professional"
 
 		},
 		{
 			"id": 13,
-			"requirement": "Allow flexible work hours"
+			"requirement": "Allow flexible work hours",
+			"dataLabel": "flexible hours"
 
 		}
 	]
