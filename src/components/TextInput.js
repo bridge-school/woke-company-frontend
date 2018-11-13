@@ -8,9 +8,9 @@ const TextInput = ({
   meta: { touched, error, warning }
 }) => (
   <div className="flex flex-col">
-    <label htmlFor={name}>{label}</label>
+    <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor={name}>{label}</label>
     <input
-      className="border border-black p-1"
+      className="shadow appearance-none border rounded w-full py-2 px-3 my-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
       {...input}
       placeholder={label}
       type={type}

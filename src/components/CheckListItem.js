@@ -10,13 +10,14 @@ const CheckListItem = ({
 	text
 }) => {
 	return (
-		<li className="list-reset mb-1">
+		<li className="list-reset my-4 flex items-stretch">
 			<input 
 				onChange={() => input.onChange(!input.value)}
+				className="mt-1"
 				checked={input.value} 
 				type={type} 
 				value="item"/>
-				<label className="pl-2" htmlFor={label}>{text}</label>
+			<label className="block text-grey-darker text-sm ml-2 leading-normal" htmlFor={label}>{text}</label>
 		</li>
 
 	)

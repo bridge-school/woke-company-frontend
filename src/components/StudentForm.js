@@ -39,8 +39,9 @@ const StudentForm = props => {
     isoDate
   } = props;
   return (
-    <div className="ml-10 mr-10">
-      <form onSubmit={handleSubmit}>
+    <div className="">
+      <h2 className="text-lg text-bridge-dark-blue px-6 py-4">Student Form</h2>
+      <form className="px-6 py-4" onSubmit={handleSubmit}>
         <Field
           name="FirstName"
           type="text"
@@ -79,7 +80,7 @@ const StudentForm = props => {
         />
 
         <button
-          className="border border-black p-2 mt-4"
+          className="bg-grey hover:bg-grey-dark text-white font-bold py-2 px-4 my-3 rounded focus:outline-none focus:shadow-outline"
           type="submit"
           disabled={submitting}
         >

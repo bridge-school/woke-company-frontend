@@ -18,3 +18,10 @@ export const fetchChecklist = () =>
 	fetch(`${API_BASE_URL}/checklist`).then((res) => res.json()).catch((err) => {
 		console.log(err);
 	});
+
+export const fetchCompanies = () =>
+	fetch(`${API_BASE_URL}/companies`)
+	.then((res) => res.json())
+	.catch((err) => {
+		console.log(err);
+	});

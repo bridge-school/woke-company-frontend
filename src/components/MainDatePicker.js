@@ -19,45 +19,41 @@ export default ({
 }) => {
   return (
     <React.Fragment>
-      <div className="flex items-center mb-4">
-        <div className="my-4">
-          <DatePicker
-            // displays the date in the input
-            // changes upon date selection
-            selected={displayDate}
-            id="date-picker"
-            // handles changing the date
-            onChange={handleChangeDatePicker}
-            allowSameDay={true}
-            dateFormat="DD/MM/YYYY"
-            todayButton={"Today"}
-            // once date selected, close the calendar
-            shouldCloseOnSelect={true}
-            className="border border-black p-1"
-            popperClassName="some-custom-class"
-            popperPlacement="top-end"
-            popperModifiers={{
-              offset: {
-                enabled: true,
-                offset: "5px, 10px"
-              },
-              preventOverflow: {
-                enabled: true,
-                escapeWithReference: false, // force popper to stay in viewport (even when input is scrolled out of view)
-                boundariesElement: "viewport"
-              }
-            }}
-          />
-        </div>
+      <div className="flex flex-row">
+        <DatePicker
+          // displays the date in the input
+          // changes upon date selection
+          selected={displayDate}
+          id="date-picker"
+          // handles changing the date
+          onChange={handleChangeDatePicker}
+          allowSameDay={true}
+          dateFormat="DD/MM/YYYY"
+          todayButton={"Today"}
+          // once date selected, close the calendar
+          shouldCloseOnSelect={true}
+          className="shadow appearance-none border rounded w-full py-2 px-3 my-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
+          popperClassName="some-custom-class"
+          popperPlacement="top-end"
+          popperModifiers={{
+            offset: {
+              enabled: true,
+              offset: "5px, 10px"
+            },
+            preventOverflow: {
+              enabled: true,
+              escapeWithReference: false, // force popper to stay in viewport (even when input is scrolled out of view)
+              boundariesElement: "viewport"
+            }
+          }}
+        />
         {/* could probably make the icon a component */}
         <label
           htmlFor="date-picker"
-          className="my-4 mx-4 flex-1 bridge-dark-blue-color text-2xl">
+          className="flex-1 block text-2xl my-4 mx-4 text-grey-darker text-sm font-bold mb-2">
           <FontAwesomeIcon icon="calendar-alt" />
         </label>
       </div>
-      <p>Formatted date: {formattedDate}</p>
-      <p>ISO Date: {isoDate}</p>
     </React.Fragment>
   );
 };

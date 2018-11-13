@@ -21,21 +21,18 @@ class StudentList extends Component {
           <Route path={`/students/:${studentId}`} component={StudentCard} />
         </Switch>
         {this.props.location.pathname === "/students" ? (
-          <div>
-            <NavLink to={`/students/:${studentId}`}>
-              <h2>Student Name</h2>
+          <div className="px-6 py-4">
+            <NavLink className="no-underline" to={`/students/:${studentId}`}>
+              <h2 className="text-lg text-bridge-dark-blue">Student Name</h2>
             </NavLink>
-            <ul>
-              <li>Tag</li>
-              <li>Tag</li>
-              <li>Tag</li>
-              <li>Tag</li>
-              <li>Tag</li>
-              <li>Tag</li>
-              <li>Tag</li>
-              <li>Tag</li>
+            <ul className="list-reset my-4">
+            <li className="inline-block mr-4">Tag</li>
+            <li className="inline-block mr-4">Tag</li>
+            <li className="inline-block mr-4">Tag</li>
+            <li className="inline-block mr-4">Tag</li>
+            <li className="inline-block mr-4">Tag</li>
             </ul>
-            <hr />
+            <hr className="bg-grey-darkest my-4" />
           </div>
         ) : null}
       </div>

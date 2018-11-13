@@ -30,8 +30,9 @@ const CompanyForm = (props) => {
 	// setting props as variables
 	const { handleSubmit, submitting, displayDate, formattedDate, isoDate, checklist } = props;
 	return (
-		<div className='ml-10 mr-10'>
-			<form onSubmit={handleSubmit}>
+		<div className="">
+			<h2 className="text-lg text-bridge-dark-blue px-6 py-4">Company Form</h2>
+			<form className="px-6 py-4" onSubmit={handleSubmit}>
 				<Field
 					name='companyName'
 					type='text'
@@ -53,13 +54,14 @@ const CompanyForm = (props) => {
 					displayDate={displayDate}
 				/>
 
-				<div className='w-1/2'>
-					<h3 className='text-center p-2'>Company Checklist</h3>
+				<div>
+					<h3 className="block text-grey-darker text-sm font-bold mb-2">Company Checklist</h3>
 					{checklist.map((key, i) => (
 						<Field
 							className='p-1 '
-							name={key.dataLabel}
+							name="checklist"
 							id={i}
+							key={i}
 							type='checkbox'
 							component={CheckListItem}
 							label='Company Check List'
@@ -71,7 +73,7 @@ const CompanyForm = (props) => {
 				<Field name='techDropdown' component={TechStackDropdown} />
 				<Field name='industryDropdown' component={IndustryDropdown} />
 
-				<button className='border border-black p-2 mt-4' type='submit' disabled={submitting}>
+				<button className="bg-grey hover:bg-grey-dark text-white font-bold py-2 px-4 my-3 rounded focus:outline-none focus:shadow-outline" type="submit" disabled={submitting}>
 					Submit
 				</button>
 			</form>

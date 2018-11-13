@@ -1,19 +1,16 @@
 import { combineReducers } from "redux";
 // REDUX FORM
 import { reducer as formReducer } from "redux-form";
-import checklistReducer from "./checklist.js";
 // REDUCERS
-
-// rootReducer is our parent reducer that takes in our child reducers
-// use the combineReducers to comine multiple reducers into one parent reducer
-// const rootReducer = combineReducers({
-//   datePicker,
-//   form: formReducer
-// });
+import navHamburgerReducer from "./navHamburger";
+import checklistReducer from "./checklist.js";
+import companiesReducer from "./companies.js";
 
 const rootReducer = combineReducers({
   form: formReducer,
-	checklist: checklistReducer
+  navHamburger: navHamburgerReducer,
+  checklist: checklistReducer,
+  companies: companiesReducer
 });
 
 // export rootReducer
