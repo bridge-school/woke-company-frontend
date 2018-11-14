@@ -36,7 +36,8 @@ const StudentForm = props => {
     submitting,
     displayDate,
     formattedDate,
-    isoDate
+    isoDate,
+    keywords
   } = props;
   return (
     <div className="">
@@ -72,11 +73,13 @@ const StudentForm = props => {
           name="techDropdown"
           label="Industries of Interest"
           component={TechStackDropdown}
+          keywords={keywords}
         />
         <Field
           name="industryDropdown"
           label="Technial Interests"
           component={IndustryDropdown}
+          keywords={keywords}
         />
 
         <button
