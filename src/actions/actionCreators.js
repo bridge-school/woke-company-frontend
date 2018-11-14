@@ -7,7 +7,9 @@ const ACTIONS = {
   HANDLE_NAV_HAMBURGER: "HANDLE_NAV_HAMBURGER",
   HANDLE_GET_CHECKLIST: "HANDLE_GET_CHECKLIST",
   HANDLE_GET_COMPANIES: "HANDLE_GET_COMPANIES",
-  HANDLE_GET_KEYWORDS: "HANDLE_GET_KEYWORDS"
+  HANDLE_GET_KEYWORDS: "HANDLE_GET_KEYWORDS",
+  SHOW_CERTIFIED: "SHOW_CERTIFIED",
+  SHOW_ALL: "SHOW_ALL"
 };
 
 //  exporting our action
@@ -37,6 +39,16 @@ export const getCompanies = () => dispatch =>
       payload: result
     })
   );
+
+export const showCertified = companies => ({
+  type: ACTIONS.SHOW_CERTIFIED
+  // payload:
+});
+
+export const showAll = companies => ({
+  type: ACTIONS.SHOW_ALL
+  // payload:
+});
 
 export const getKeywords = () => dispatch =>
   fetchKeywords()
