@@ -18,21 +18,49 @@ class CompanyList extends Component {
 		// checking that we're connected to the backend
 		checkApiServer();
 		this.props.getCompanies();
-	}
+  };
   static propTypes = {
     match: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
   };
+  createKeywordTypeList = keywordTypes => {
+    let keywordTypeList = [];
+    for (let i in keywordTypes) {
+      if (!keywordTypes.hasOwnProperty(i)) continue;
+      let keywordType = keywordTypes[i];
+      keywordTypeList.push(
+        <ul>
+          {keywordType.map(((keyword, i) => {
+            return <li className="inline-block mr-4" key={`${keyword}-${i}`}>{keyword}</li>;
+          }))}
+        </ul>
+      )
+    }
+    return keywordTypeList;
+  };
+  createCompanyList = companies => {
+    // you can't do a for loop in the render function
+    // so we're doing it up here
+    let companyList = [];
+    for (let i in companies) {
+      if (!companies.hasOwnProperty(i)) continue;
+      let company = companies[i];
+      companyList.push(
+        <div className="my-4 px-6 py-4" key={`company-${i}`}>
+          <a href="/"><h2 className="text-lg text-bridge-dark-blue">{company.name}</h2></a>
+          {this.createKeywordTypeList(company.keywords)}
+        </div>
+      )
+    }
+    return companyList;
+  }
   render() {
     return (
       <div>
-        {this.props.companies.map((company) => {
-          return <Switch>
-          {/* <Route path={`/companies/:${company.id}`} component={CompanyCard} /> */}
+        <Switch>
           <Route path={'/companies/:id'} component={CompanyCard} />
         </Switch>
-        })}
 
         <div>
           {' '}
@@ -46,15 +74,10 @@ class CompanyList extends Component {
         </div>
 
         {!this.props.selectedCompany ? 
-        <div>
-          {this.props.companies.map((company, i) => {
-            return <ul className="list-reset my-4 px-6 py-4" key={`${i}`}>
-              <a href="/"><h2 className="text-lg text-bridge-dark-blue">{company.name}</h2></a>
-              <ul className="list-reset my-4"><li className="inline-block mr-4">{company.keywords.industry}</li></ul>
-              <ul className="list-reset my-4"><li className="inline-block mr-4">{company.keywords.technical}</li></ul>
-            </ul>
-          })}
-        <hr /></div> : 
+          <div>
+            {this.createCompanyList(this.props.companies)}
+            <hr />
+          </div> : 
         <CompanyCard selectedCompany={this.state.selectedCompany} />}
       </div>
     )
