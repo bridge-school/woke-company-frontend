@@ -6,7 +6,7 @@ export default ({ input, keywords }) => {
     <React.Fragment>
       <label
         htmlFor="tech-stack-tags"
-        className="block text-grey-darker text-sm font-bold mb-2"
+        className="block text-grey-darker text-sm font-bold my-2"
       >
         Tech stack tags
       </label>

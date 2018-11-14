@@ -1,26 +1,26 @@
 import React from 'react';
-// import { reduxForm, Field } from "redux-form";
-// import listitem from './checklistitems.json';
 
-const CheckListItem = ({ 
-	input,
-	label,
-	type,
-	name,
-	text
-}) => {
-	return (
-		<li className="list-reset my-4 flex items-stretch">
-			<input 
-				onChange={() => input.onChange(!input.value)}
-				className="mt-1"
-				checked={input.value} 
-				type={type} 
-				value="item"/>
-			<label className="block text-grey-darker text-sm ml-2 leading-normal" htmlFor={label}>{text}</label>
-		</li>
+export const CheckboxGroup = ({ label, name, options, input}) => (
+	<ul className="checkbox list-reset">
+	  { options.map((option, i) => (
+		<li key={i} className="list-reset my-4 flex items-stretch">
+			<input type="checkbox"
+				   name={`${name}[${i}]`}
+				   value={option.name}
+				   checked={input.value.indexOf(option.name) !== -1}
+				   onChange={event => {
+					 const newValue = [...input.value];
+					 if(event.target.checked) {
+					   newValue.push(option.name);
+					 } else {
+					   newValue.splice(newValue.indexOf(option.name), 1);
+					 }
 
-	)
-}
-
-export default CheckListItem;
+					 return input.onChange(newValue);
+				   }}/>
+			<label className="block text-grey-darker text-sm ml-2 leading-normal" htmlFor={label}>{option.label}</label>
+		  </li>
+		))
+	  }
+	</ul>
+); 

@@ -30,7 +30,7 @@ class CompanyList extends Component {
       if (!keywordTypes.hasOwnProperty(i)) continue;
       let keywordType = keywordTypes[i];
       keywordTypeList.push(
-        <ul>
+        <ul key={i}>
           {keywordType.map(((keyword, i) => {
             return <li className="inline-block mr-4" key={`${keyword}-${i}`}>{keyword}</li>;
           }))}
