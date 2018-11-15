@@ -1,11 +1,11 @@
 import React from 'react';
 
-export const CheckboxGroup = ({ label, name, options, input}) => (
-	<ul className="checkbox list-reset">
+export const CheckboxGroup = ({ label, options, input}) => (
+	<ul className="">
 	  { options.map((option, i) => (
-		<li key={i} className="list-reset my-4 flex items-stretch">
+		<li key={i} className="">
 			<input type="checkbox"
-				   name={`${name}[${i}]`}
+				   name={`checkbox-${i}`}
 				   value={option.name}
 				   checked={input.value.indexOf(option.name) !== -1}
 				   onChange={event => {
@@ -18,7 +18,7 @@ export const CheckboxGroup = ({ label, name, options, input}) => (
 
 					 return input.onChange(newValue);
 				   }}/>
-			<label className="block text-grey-darker text-sm ml-2 leading-normal" htmlFor={label}>{option.label}</label>
+			<label className="" htmlFor={label}>{option.label}</label>
 		  </li>
 		))
 	  }
