@@ -75,11 +75,11 @@ const CompanyForm = props => {
 						/>
 				</div>
 
-        <Field
-          name="techDropdown"
+        <Field  
+          name="language"
           component={TechStackDropdown}
           keywords={keywords}
-        />
+        /> 
         <Field
           name="industryDropdown"
           component={IndustryDropdown}
