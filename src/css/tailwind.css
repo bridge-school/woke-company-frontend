@@ -3805,7 +3805,7 @@ table {
 }
 
 .max-w-xs {
-  max-width: 20rem;
+  max-width: 10rem;
 }
 
 .max-w-sm {
@@ -9529,7 +9529,7 @@ table {
   }
 
   .sm\:max-w-xs {
-    max-width: 20rem;
+    max-width: 10rem;
   }
 
   .sm\:max-w-sm {
@@ -15238,7 +15238,7 @@ table {
   }
 
   .md\:max-w-xs {
-    max-width: 20rem;
+    max-width: 10rem;
   }
 
   .md\:max-w-sm {
@@ -20947,7 +20947,7 @@ table {
   }
 
   .lg\:max-w-xs {
-    max-width: 20rem;
+    max-width: 10rem;
   }
 
   .lg\:max-w-sm {
@@ -26656,7 +26656,7 @@ table {
   }
 
   .xl\:max-w-xs {
-    max-width: 20rem;
+    max-width: 10rem;
   }
 
   .xl\:max-w-sm {

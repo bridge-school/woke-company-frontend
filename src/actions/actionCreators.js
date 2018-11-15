@@ -1,4 +1,4 @@
-import { fetchChecklist, fetchCompanies, fetchKeywords } from "../api/index";
+import { fetchChecklist, fetchCompanies, fetchKeywords, writeCompany } from "../api/index";
 
 // actions object
 const ACTIONS = {
@@ -7,9 +7,10 @@ const ACTIONS = {
   HANDLE_NAV_HAMBURGER: "HANDLE_NAV_HAMBURGER",
   HANDLE_GET_CHECKLIST: "HANDLE_GET_CHECKLIST",
   HANDLE_GET_COMPANIES: "HANDLE_GET_COMPANIES",
+  HANDLE_ADD_COMPANY: "HANDLE_ADD_COMPANY",
   HANDLE_GET_KEYWORDS: "HANDLE_GET_KEYWORDS",
-  SHOW_CERTIFIED_COMPANIES: "SHOW_CERTIFIED_COMPANIES",
-  SHOW_ALL_COMPANIES: "SHOW_ALL_COMPANIES"
+  HANDLE_SHOW_CERTIFIED_COMPANIES: "HANDLE_SHOW_CERTIFIED_COMPANIES",
+  HANDLE_SHOW_ALL_COMPANIES: "HANDLE_SHOW_ALL_COMPANIES"
 };
 
 //  exporting our action
@@ -30,7 +31,7 @@ export const getChecklist = () => dispatch =>
       type: ACTIONS.HANDLE_GET_CHECKLIST,
       payload: result
     })
-  );
+  ).catch(err => console.log(err));
 
 export const getCompanies = () => dispatch =>
   fetchCompanies().then(result =>
@@ -38,25 +39,30 @@ export const getCompanies = () => dispatch =>
       type: ACTIONS.HANDLE_GET_COMPANIES,
       payload: result
     })
-  );
+  ).catch(err => console.log(err));
+
+export const addCompany = data => dispatch =>
+  writeCompany(data).then(result =>
+    dispatch({
+      type: ACTIONS.HANDLE_ADD_COMPANY,
+      payload: result
+    })
+  ).catch(err => console.log(err));
 
 export const showCertifiedCompanies = companies => ({
-  type: ACTIONS.SHOW_CERTIFIED_COMPANIES
+  type: ACTIONS.HANDLE_SHOW_CERTIFIED_COMPANIES
   // payload:
 });
 
 export const showAllCompanies = companies => ({
-  type: ACTIONS.SHOW_ALL_COMPANIES
+  type: ACTIONS.HANDLE_SHOW_ALL_COMPANIES
   // payload:
 });
 
 export const getKeywords = () => dispatch =>
-  fetchKeywords()
-    .then(res => res.json())
-    .then(result =>
+  fetchKeywords().then(result =>
       dispatch({
         type: ACTIONS.HANDLE_GET_KEYWORDS,
         payload: result
       })
-    )
-    .catch(err => console.log(err));
+    ).catch(err => console.log(err));

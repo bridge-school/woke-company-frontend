@@ -46,7 +46,7 @@ class CompanyList extends Component {
       let company = companies[i];
       companyList.push(
         <a href="/" className="no-underline">
-        <div className="mx-auto max-w-sm rounded overflow-hidden shadow-md px-6 py-4 mb-5" key={`company-${i}`}>
+        <div className="mx-auto max-w-sm rounded overflow-hidden shadow-md px-6 py-4 mb-3 bg-white" key={`company-${i}`}>
           <h2 className="font-bold text-xl mb-2 no-underline text-bridge-dark-blue">{company.name}</h2>
           {this.createKeywordTypeList(company.keywords)}
         </div>
@@ -57,21 +57,23 @@ class CompanyList extends Component {
   }
   render() {
     return (
-      <div className="container mx-auto">
+      <div className="container mx-auto p-3">
         <Switch>
           <Route path={'/companies/:id'} component={CompanyCard} />
         </Switch>
 
-        <div>
-          {' '}
-          <CertifiedButton handleClick={this.props.showCertifiedCompanies}>
-            Certified Companies
-          </CertifiedButton>
-          {' '}
-          <CertifiedButton handleClick={this.props.showAllCompanies}>
-            All Companies
-          </CertifiedButton>
-        </div>
+        <ul className="list-reset flex max-w-sm mx-auto mb-4">
+          <li className="flex-1 mr-2">
+            <CertifiedButton handleClick={this.props.showCertifiedCompanies}>
+              Certified Companies
+            </CertifiedButton>
+          </li>
+          <li className=" text-center flex-1">
+            <CertifiedButton handleClick={this.props.showAllCompanies}>
+              All Companies
+            </CertifiedButton>
+          </li>
+        </ul>
 
         {!this.props.selectedCompany ? 
           <React.Fragment>

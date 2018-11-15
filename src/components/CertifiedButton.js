@@ -6,12 +6,12 @@ const CertifiedButton = ({
 }) => {
 	return (
 		<button
-          className="border border-black p-2 mt-4"
-          type="button"
-          onClick={handleClick}
-        >
-          {children}
-        </button>
+      className="text-center w-full block border border-bridge-pink rounded py-2 px-4 bg-bridge-pink hover:bg-white text-white hover:text-bridge-pink font-bold"x
+      type="button"
+      onClick={handleClick}
+    >
+      {children}
+    </button>
 	)
 }
 
