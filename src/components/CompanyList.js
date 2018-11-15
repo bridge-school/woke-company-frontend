@@ -7,7 +7,7 @@ import { checkApiServer } from '../api';
 // REDUX CONNECT
 import { connect } from 'react-redux';
 // REDUX ACTIONS
-import { getCompanies, showCertified, showAll } from '../actions/actionCreators';
+import { getCompanies, showCertifiedCompanies, showAllCompanies } from '../actions/actionCreators';
 import CompanyCard from './CompanyCard';
 import CertifiedButton from './CertifiedButton';
 
@@ -30,11 +30,9 @@ class CompanyList extends Component {
       if (!keywordTypes.hasOwnProperty(i)) continue;
       let keywordType = keywordTypes[i];
       keywordTypeList.push(
-        <ul key={i}>
-          {keywordType.map(((keyword, i) => {
-            return <li className="inline-block mr-4" key={`${keyword}-${i}`}>{keyword}</li>;
-          }))}
-        </ul>
+        <div className="text-grey-darker text-base mb-2">
+          <span className="uppercase text-sm font-bold">{i}:</span> {keywordType.join(', ')}
+        </div>
       )
     }
     return keywordTypeList;
@@ -47,37 +45,38 @@ class CompanyList extends Component {
       if (!companies.hasOwnProperty(i)) continue;
       let company = companies[i];
       companyList.push(
-        <div className="my-4 px-6 py-4" key={`company-${i}`}>
-          <a href="/"><h2 className="text-lg text-bridge-dark-blue">{company.name}</h2></a>
+        <a href="/" className="no-underline">
+        <div className="mx-auto max-w-sm rounded overflow-hidden shadow-md px-6 py-4 mb-5" key={`company-${i}`}>
+          <h2 className="font-bold text-xl mb-2 no-underline text-bridge-dark-blue">{company.name}</h2>
           {this.createKeywordTypeList(company.keywords)}
         </div>
+        </a>
       )
     }
     return companyList;
   }
   render() {
     return (
-      <div>
+      <div className="container mx-auto">
         <Switch>
           <Route path={'/companies/:id'} component={CompanyCard} />
         </Switch>
 
         <div>
           {' '}
-          <CertifiedButton handleClick={this.props.showCertified}>
+          <CertifiedButton handleClick={this.props.showCertifiedCompanies}>
             Certified Companies
           </CertifiedButton>
           {' '}
-          <CertifiedButton handleClick={this.props.showAll}>
+          <CertifiedButton handleClick={this.props.showAllCompanies}>
             All Companies
           </CertifiedButton>
         </div>
 
         {!this.props.selectedCompany ? 
-          <div>
+          <React.Fragment>
             {this.createCompanyList(this.props.companies)}
-            <hr />
-          </div> : 
+          </React.Fragment> : 
         <CompanyCard selectedCompany={this.state.selectedCompany} />}
       </div>
     )
@@ -95,8 +94,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   getCompanies,
-  showCertified,
-  showAll,
+  showCertifiedCompanies,
+  showAllCompanies,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompanyList);

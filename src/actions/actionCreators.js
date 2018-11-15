@@ -8,8 +8,8 @@ const ACTIONS = {
   HANDLE_GET_CHECKLIST: "HANDLE_GET_CHECKLIST",
   HANDLE_GET_COMPANIES: "HANDLE_GET_COMPANIES",
   HANDLE_GET_KEYWORDS: "HANDLE_GET_KEYWORDS",
-  SHOW_CERTIFIED: "SHOW_CERTIFIED",
-  SHOW_ALL: "SHOW_ALL"
+  SHOW_CERTIFIED_COMPANIES: "SHOW_CERTIFIED_COMPANIES",
+  SHOW_ALL_COMPANIES: "SHOW_ALL_COMPANIES"
 };
 
 //  exporting our action
@@ -40,13 +40,13 @@ export const getCompanies = () => dispatch =>
     })
   );
 
-export const showCertified = companies => ({
-  type: ACTIONS.SHOW_CERTIFIED
+export const showCertifiedCompanies = companies => ({
+  type: ACTIONS.SHOW_CERTIFIED_COMPANIES
   // payload:
 });
 
-export const showAll = companies => ({
-  type: ACTIONS.SHOW_ALL
+export const showAllCompanies = companies => ({
+  type: ACTIONS.SHOW_ALL_COMPANIES
   // payload:
 });
 
