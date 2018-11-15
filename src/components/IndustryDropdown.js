@@ -11,15 +11,14 @@ export default ({ input, keywords }) => {
         Industry tags
       </label>
       <Select
-        defaultValue={[keywords.industry[0], keywords.industry[1]]}
         id="industry-tags"
         isMulti
         value={input ? input.value : null}
-        onChange={input ? input.onChange : null}
-        onBlur={() => input.onBlur(input.value)}
-        name="tech stack tags"
+        onChange={input.onChange}
+        onBlur={event => event.preventDefault()}
+        name="industry tags"
         options={keywords.industry}
-        className="basic-multi-select my-3"
+        className="basic-multi-select"
         classNamePrefix="select"
       />
     </React.Fragment>
